@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        #game {
+            text-align: center;
+        }
+        #score {
+            font-size: 2em;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div id="game">
+        <h1>Clicker Game</h1>
+        <div id="score">0</div>
+        <button onclick="incrementScore()">Click me!</button>
+    </div>
+
+    <script>
+        let score = 0;
+        
+        function incrementScore() {
+            score++;
+            document.getElementById('score').innerText = score;
+            // Optionally, send the score to the Telegram bot server
+        }
+    </script>
+</body>
+</html>
 
