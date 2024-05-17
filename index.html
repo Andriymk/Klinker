@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clicker Game with Token</title>
+    <title>Clicker Game</title>
     <style>
         body {
             display: flex;
@@ -26,35 +26,40 @@
 </head>
 <body>
     <div id="game">
-        <h1>Clicker Game with Token</h1>
+        <h1>Clicker Game</h1>
         <div id="score">0</div>
         <button onclick="incrementScore()">Click me!</button>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.5.2/dist/web3.min.js"></script>
+    <script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login="YOUR_BOT_USERNAME" data-size="large" data-auth-url="https://yourdomain.com/auth" data-request-access="write"></script>
+
     <script>
         let score = 0;
         let user_id = null;
         let username = null;
-        const contractAddress = "YOUR_CONTRACT_ADDRESS";
-        const abi = [
-            // Вставте тут ABI вашого контракту
-        ];
 
-        async function incrementScore() {
+        function incrementScore() {
             score++;
             document.getElementById('score').innerText = score;
             if (user_id) {
-                // Optionally, send the score to the smart contract
-                const web3 = new Web3(Web3.givenProvider);
-                const contract = new web3.eth.Contract(abi, contractAddress);
-                const amount = web3.utils.toWei('1', 'ether'); // Визначте кількість токенів
-                await contract.methods.awardTokens(userAddress, amount, "Increment Score").send({ from: userAddress });
+                // Optionally, send the score to the Telegram bot server
+                fetch('/update_score', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ user_id, score })
+                });
             }
         }
 
-        async function connectWallet() {
-            if (window.ethereum) {
-                try
+        // Отримання даних користувача з URL
+        const urlParams = new URLSearchParams(window.location.search);
+        user_id = urlParams.get('user_id');
+        username = urlParams.get('username');
+    </script>
+</body>
+</html>
+
 
 
