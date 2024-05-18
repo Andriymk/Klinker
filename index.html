@@ -22,16 +22,6 @@
             padding: 10px 20px;
             font-size: 1.5em;
         }
-    </style>
-</head>
-<body>
-    <div id="game">
-        <h1>Clicker Game</h1>
-        <div id="score">0</div>
-        <button onclick="incrementScore()">Click me!</button>
-    </div>
-
-    <style>
         /* Стилі для нижнього меню */
         .footer {
             position: fixed;
@@ -52,9 +42,12 @@
     </style>
 </head>
 <body>
-    <h1>Ваш вміст</h1>
-    <p>Тут може бути будь-який вміст вашої сторінки.</p>
-    
+    <div id="game">
+        <h1>Clicker Game</h1>
+        <div id="score">0</div>
+        <button onclick="incrementScore()">Click me!</button>
+    </div>
+
     <!-- Нижнє меню -->
     <div class="footer">
         <!-- Посилання на соціальні мережі -->
@@ -68,7 +61,7 @@
         <a href="#">Допомога</a>
     </div>
 
-    <script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login=" t.me/KlinkerGamesbot/myapp" data-size="large" data-auth-url="https://t.me/KlinkerGamesbot/KlinkerGames//auth" data-request-access="write"></script>
+    <script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login="KlinkerGamesbot" data-size="large" data-auth-url="https://yourdomain.com/auth" data-request-access="write"></script>
 
     <script>
         let score = 0;
