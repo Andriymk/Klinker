@@ -73,7 +73,7 @@
             document.getElementById('score').innerText = score;
             if (user_id) {
                 // Optionally, send the score to the Telegram bot server
-                fetch('/update_score', {
+                fetch('https://yourdomain.com/update_score', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
