@@ -68,7 +68,7 @@
             document.getElementById('score').innerText = score;
             if (user_id) {
                 // Optionally, send the score to the Telegram bot server
-                fetch('http://localhost:5000/update_score', {
+                fetch('https://andriymk.github.io/klinkerserver/update_score', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
