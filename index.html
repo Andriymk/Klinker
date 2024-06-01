@@ -1,71 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clicker Game</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-        }
-        #game {
-            text-align: center;
-        }
-        #score {
-            font-size: 2em;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 1.5em;
-        }
-    </style>
-</head>
 <body>
     <div id="game">
         <h1>Clicker Game</h1>
         <div id="score">0</div>
         <button onclick="incrementScore()">Click me!</button>
+        <button onclick="startGame()">Play</button> <!-- Додано кнопку "Play" -->
     </div>
-
-    <style>
-        /* Стилі для нижнього меню */
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        /* Стилі для посилань у нижньому меню */
-        .footer a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-    </style>
-    
-    <!-- Нижнє меню -->
     <div class="footer">
-        <!-- Посилання на соціальні мережі -->
         <a href="#">Facebook</a>
         <a href="#">Twitter</a>
         <a href="#">Instagram</a>
-        
-        <!-- Навігаційні посилання -->
         <a href="#">Про нас</a>
         <a href="#">Контакти</a>
         <a href="#">Допомога</a>
     </div>
-
-    <script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login="@KlinkerGamesbot" data-size="large" data-auth-url="https://andriymk.github.io/Klinker/auth" data-request-access="write"></script>
-
+    <script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login="YOUR_BOT_USERNAME" data-size="large" data-auth-url="http://localhost:5000/auth" data-request-access="write"></script>
     <script>
         let score = 0;
         let user_id = null;
@@ -75,7 +23,6 @@
             score++;
             document.getElementById('score').innerText = score;
             if (user_id) {
-                // Optionally, send the score to the Telegram bot server
                 fetch('/update_score', {
                     method: 'POST',
                     headers: {
@@ -86,10 +33,13 @@
             }
         }
 
-        // Отримання даних користувача з URL
         const urlParams = new URLSearchParams(window.location.search);
         user_id = urlParams.get('user_id');
         username = urlParams.get('username');
+
+        function startGame() {
+            // Відправити запит для початку гри через телеграм-бота
+            window.open(`https://t.me/${YOUR_BOT_USERNAME}?start=game`);
+        }
     </script>
 </body>
-</html>
