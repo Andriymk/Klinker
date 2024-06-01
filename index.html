@@ -22,6 +22,16 @@
             padding: 10px 20px;
             font-size: 1.5em;
         }
+    </style>
+</head>
+<body>
+    <div id="game">
+        <h1>Clicker Game</h1>
+        <div id="score">0</div>
+        <button onclick="incrementScore()">Click me!</button>
+    </div>
+
+    <style>
         /* Стилі для нижнього меню */
         .footer {
             position: fixed;
@@ -40,23 +50,21 @@
             margin: 0 10px;
         }
     </style>
-</head>
-<body>
-    <div id="game">
-        <h1>Clicker Game</h1>
-        <div id="score">0</div>
-        <button onclick="incrementScore()">Click me!</button>
-    </div>
-
+    
     <!-- Нижнє меню -->
-    <div class="footer">        
+    <div class="footer">
+        <!-- Посилання на соціальні мережі -->
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+        
         <!-- Навігаційні посилання -->
         <a href="#">Про нас</a>
         <a href="#">Контакти</a>
         <a href="#">Допомога</a>
     </div>
 
-    <script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login="KlinkerGamesbot" data-size="large" data-auth-url="https://andriymk.github.io/klinkerserver/auth" data-request-access="write"></script>
+    <script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login="@KlinkerGamesbot" data-size="large" data-auth-url="https://andriymk.github.io/Klinker/auth" data-request-access="write"></script>
 
     <script>
         let score = 0;
@@ -68,7 +76,7 @@
             document.getElementById('score').innerText = score;
             if (user_id) {
                 // Optionally, send the score to the Telegram bot server
-                fetch('https://andriymk.github.io/klinkerserver/update_score', {
+                fetch('/update_score', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
