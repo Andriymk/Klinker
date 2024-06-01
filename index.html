@@ -3,16 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clicker Game</title>
+    <title>Telegram Authentication</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #telegram-login {
+            margin-top: 20px;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div id="game">
-        <h1>Clicker Game</h1>
-        <div id="score">0</div>
-        <button onclick="incrementScore()">Click me!</button>
-        <button onclick="startGame()">Play</button> <!-- Додано кнопку "Play" -->
+    <div class="container">
+        <h1>Telegram Authentication</h1>
+        <div id="telegram-login"></div>
     </div>
-    <div id="telegram-login"></div>
     <div class="footer">
         <a href="#">Facebook</a>
         <a href="#">Twitter</a>
@@ -23,33 +55,5 @@
     </div>
 
     <script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login="YOUR_BOT_USERNAME" data-size="large" data-radius="5" data-auth-url="/auth" data-request-access="write"></script>
-    <script>
-        let score = 0;
-        let user_id = null;
-        let username = null;
-
-        function incrementScore() {
-            score++;
-            document.getElementById('score').innerText = score;
-            if (user_id) {
-                fetch('/update_score', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ user_id, score })
-                });
-            }
-        }
-
-        const urlParams = new URLSearchParams(window.location.search);
-        user_id = urlParams.get('user_id');
-        username = urlParams.get('username');
-
-        function startGame() {
-            // Відправити запит для початку гри через телеграм-бота
-            window.open(`https://t.me/${KlinkerGamesbot/KlinkerGames}?start=game`);
-        }
-    </script>
 </body>
 </html>
