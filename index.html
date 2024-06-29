@@ -3,63 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Authentication</title>
+    <title>Адаптивний стиль для Android</title>
     <style>
+        /* Стилі для загального контенту */
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
+            line-height: 1.6;
+        }
+        
+        /* Медіа-запити для адаптації на різних пристроях */
+        @media only screen and (max-width: 600px) {
+            /* Стилі для телефонів */
+            .container {
+                width: 100%;
+                padding: 0 10px;
+            }
         }
 
-        .container {
-            text-align: center;
+        @media only screen and (min-width: 601px) and (max-width: 1024px) {
+            /* Стилі для планшетів */
+            .container {
+                width: 80%;
+                max-width: 800px;
+                margin: 0 auto;
+            }
         }
 
-        h1 {
-            margin-bottom: 20px;
-        }
-
-        #telegram-login {
-            margin-top: 20px;
-        }
-
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
+        @media only screen and (min-width: 1025px) {
+            /* Стилі для настільних комп'ютерів */
+            .container {
+                width: 70%;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Telegram Authentication</h1>
-        <div id="telegram-login"></div>
+        <h1>Адаптивний стиль для Android</h1>
+        <p>Це ваш контент, який буде адаптуватися до різних розмірів екрану на Android-пристроях.</p>
     </div>
-    <div class="footer">
-        <a href="#">Facebook</a>
-        <a href="#">Twitter</a>
-        <a href="#">Instagram</a>
-        <a href="#">Про нас</a>
-        <a href="#">Контакти</a>
-        <a href="#">Допомога</a>
-    </div>
-
-    <script async src="https://telegram.org/js/telegram-widget.js?7" 
-            data-telegram-login="KlinkerGamesbot" 
-            data-size="large" 
-            data-radius="5" 
-            data-auth-url="http://localhost:5000/auth" <!-- змініть URL на адресу вашого сервера -->
-            data-request-access="write">
-    </script>
 </body>
 </html>
