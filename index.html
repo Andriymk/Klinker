@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Адаптивний стиль для Android</title>
+    <title>Адаптивне нижнє меню на Android</title>
     <style>
         /* Стилі для загального контенту */
         body {
@@ -15,7 +15,35 @@
             flex-direction: column;
             min-height: 100vh;
         }
-        
+
+        /* Стилі для нижнього меню */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            display: flex;
+            justify-content: space-around;
+            padding: 0;
+        }
+
+        .footer button {
+            flex: 1;
+            height: 5px; /* Висота кнопки */
+            color: white;
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer button:hover {
+            background-color: #0056b3;
+        }
+
         /* Медіа-запити для адаптації на різних пристроях */
         @media only screen and (max-width: 600px) {
             /* Стилі для телефонів */
@@ -26,28 +54,7 @@
             }
 
             .footer {
-                position: fixed;
-                bottom: 0;
-                width: 100%;
-                background-color: #333;
-                display: flex;
-                justify-content: space-around;
                 padding: 10px 0;
-            }
-
-            .footer button {
-                color: white;
-                background-color: #007bff;
-                border: none;
-                padding: 10px 20px;
-                cursor: pointer;
-                text-decoration: none;
-                text-align: center;
-                transition: background-color 0.3s ease;
-            }
-
-            .footer button:hover {
-                background-color: #0056b3;
             }
         }
 
@@ -74,7 +81,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Адаптивний стиль для Android</h1>
+        <h1>Адаптивне нижнє меню на Android</h1>
         <p>Це ваш контент, який буде адаптуватися до різних розмірів екрану на Android-пристроях.</p>
     </div>
     <footer class="footer">
